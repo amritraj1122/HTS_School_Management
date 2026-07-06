@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Student Management</title>
+    <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/students.css" />
+    <link rel="stylesheet" href="../../css/toast.css">
+    <link rel="stylesheet" href="../../css/loader.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Student Management</h1>
+
+        <button id="addBtn">+ Add Student</button>
+      </div>
+
+      <div class="search-box">
+        <input
+          type="text"
+          id="searchStudent"
+          placeholder="Search by Admission No, Name or Father Name"
+        />
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Admission No</th>
+            <th>Name</th>
+            <th>Father Name</th>
+            <th>Gender</th>
+            <th>Class</th>
+            <th>Section</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody id="studentTable"></tbody>
+      </table>
+    </div>
+    <!-- Add Student Modal -->
+
+    <div id="studentModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+
+        <h2>Add Student</h2>
+
+        <form id="studentForm">
+          <label>Session</label>
+
+          <select id="session">
+            <option>2026-27</option>
+          </select>
+
+          <label>Student Name</label>
+
+          <input type="text" id="name" required />
+
+          <label>Father Name</label>
+
+          <input type="text" id="fatherName" required />
+
+          <label>Gender</label>
+
+          <select id="gender">
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+
+          <label>Class</label>
+
+          <select id="class">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+          </select>
+
+          <label>Section</label>
+
+          <select id="section">
+            <option>A</option>
+            <option>B</option>
+          </select>
+
+          <button type="submit">Save Student</button>
+        </form>
+      </div>
+    </div>
+    
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/students.js"></script>
+    <script src="../../js/toast.js"></script>
+    <script src="../../js/loader.js"></script>
+  </body>
+</html>

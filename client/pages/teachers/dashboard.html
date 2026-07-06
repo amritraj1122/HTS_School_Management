@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="../../css/loader.css" />
+    <link rel="stylesheet" href="../../css/toast.css" />
+    <link rel="stylesheet" href="../../css/teacher-dashboard.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="top-bar">
+        <h1>Teacher Dashboard</h1>
+
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </div>
+
+      <div id="teacherInfo" class="teacher-info"></div>
+
+      <div class="section">
+        <h2>Select Exam</h2>
+
+        <div id="examCards" class="card-grid"></div>
+      </div>
+
+      <div class="section">
+        <h2>My Teaching Assignments</h2>
+
+        <div id="assignmentCards" class="card-grid"></div>
+      </div>
+    </div>
+
+    <script src="../../js/api.js"></script>
+    <script src="../../js/toast.js"></script>
+    <script src="../../js/loader.js"></script>
+    <script src="../../js/teacher-dashboard.js"></script>
+  </body>
+</html>

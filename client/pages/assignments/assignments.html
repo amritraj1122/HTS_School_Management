@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Teaching Assignment</title>
+    <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/loader.css">
+    <link rel="stylesheet" href="../../css/assignments.css" />
+    <link rel="stylesheet" href="../../css/toast.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Teaching Assignment</h1>
+
+      <div class="form-grid">
+        <select id="session"></select>
+
+        <select id="class"></select>
+
+        <select id="section"></select>
+
+        <select id="subject"></select>
+
+        <button id="assignBtn">Assign</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Class</th>
+
+            <th>Section</th>
+
+            <th>Subject</th>
+
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody id="assignmentTable"></tbody>
+      </table>
+    </div>
+
+    <script src="../../js/api.js"></script>
+    <script src="../../js/loader.js"></script>
+    <script src="../../js/dropdownService.js"></script>
+    <script src="../../js/toast.js"></script>
+
+    <script src="../../js/assignments.js"></script>
+  </body>
+</html>

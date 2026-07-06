@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  background: #f4f7fb;
+  color: #333;
+}
+
+/* ==========================
+   Sidebar
+========================== */
+
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: linear-gradient(180deg, #a2a2a2, #1565c0);
+  color: #fff;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.sidebar-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  /* background: white; */
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+.sidebar h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.sidebar ul {
+  list-style: none;
+  flex: 1;
+}
+
+.sidebar ul li {
+  margin-bottom: 5px;
+  border-radius: 10px;
+  transition: 0.25s;
+}
+
+.sidebar ul li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+  background: rgba(255,255,255,0.18);
+}
+
+.logout-btn {
+  background: #e53935;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: .25s;
+}
+
+.logout-btn:hover {
+  background: #c62828;
+}
+
+/* ==========================
+   Main Content
+========================== */
+
+.main-content {
+  margin-left: 260px;
+  width: calc(100% - 260px);
+  padding: 30px;
+}
+
+.header {
+  background: white;
+  border-radius: 15px;
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 18px rgba(0,0,0,.08);
+}
+
+.header h1 {
+  color: #0d47a1;
+  font-size: 38px;
+  margin-bottom: 5px;
+}
+
+.header p {
+  color: #666;
+  font-size: 16px;
+}
+
+.header-right {
+  text-align: right;
+}
+
+.header-right h3 {
+  color: #0d47a1;
+  margin-bottom: 5px;
+}
+
+.header-right p {
+  color: #777;
+}
+
+/* ==========================
+   Cards
+========================== */
+
+.cards {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 22px;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,.08);
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,.15);
+}
+
+.card-icon {
+  font-size: 45px;
+  margin-bottom: 12px;
+}
+
+.card h2 {
+  color: #0d47a1;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 42px;
+  color: #222;
+  font-weight: bold;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width:900px){
+
+  .sidebar{
+    width:220px;
+  }
+
+  .main-content{
+    margin-left:220px;
+    width:calc(100% - 220px);
+  }
+
+  .header{
+    flex-direction:column;
+    gap:15px;
+    text-align:center;
+  }
+
+}
+
+/* @media (max-width:700px){
+
+  body{
+    flex-direction:column;
+  }
+
+  .sidebar{
+    position:relative;
+    width:100%;
+    height:auto;
+  }
+
+  .main-content{
+    width:100%;
+    margin-left:0;
+  }
+
+} */

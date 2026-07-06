@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result Management</title>
+    <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/loader.css">
+    <link rel="stylesheet" href="../../css/result.css" />
+    <link rel="stylesheet" href="../../css/toast.css" />
+    <link rel="stylesheet" href="../../css/loader.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Result Management</h1>
+
+      <div class="filters">
+        <select id="session"></select>
+
+        <select id="exam"></select>
+
+        <select id="class"></select>
+
+        <select id="section"></select>
+
+        <button id="loadBtn">Load Result</button>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead id="tableHead"></thead>
+
+          <tbody id="resultTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="../../js/api.js"></script>
+    <script src="../../js/loader.js"></script>
+    <script src="../../js/dropdownService.js"></script>
+    <script src="../../js/toast.js"></script>
+    <script src="../../js/loader.js"></script>
+    <script src="../../js/result.js"></script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Management</title>
+    <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/loader.css">
+    <link rel="stylesheet" href="../../css/toast.css" />
+    <link rel="stylesheet" href="../../css/teachers.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Teacher Management</h1>
+
+      <button onclick="openModal()">+ Add Teacher</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Teacher ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody id="teacherTable"></tbody>
+      </table>
+    </div>
+
+    <!-- Create Teacher Modal -->
+
+    <div id="teacherModal" class="modal">
+      <div class="modal-content">
+        <h2>Add Teacher</h2>
+
+        <label>Teacher Name</label>
+        <input type="text" id="name" placeholder="Teacher Name" required />
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Email" required />
+
+        <label>Mobile</label>
+        <input type="text" id="mobile" placeholder="Mobile" required />
+
+        <label>Status</label>
+        <select id="active">
+          <option value="true">Active</option>
+          <option value="false">Inactive</option>
+        </select>
+
+        <div class="buttons">
+          <button id="createTeacherBtn" onclick="createTeacher()">
+            Create Teacher
+          </button>
+
+          <button class="cancel" onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Teacher Modal -->
+
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <h2>Edit Teacher</h2>
+
+        <input type="hidden" id="editId" />
+
+        <label>Teacher Name</label>
+        <input type="text" id="editName" placeholder="Teacher Name" required />
+
+        <label>Email</label>
+        <input type="email" id="editEmail" placeholder="Email" required />
+
+        <label>Mobile</label>
+        <input type="text" id="editMobile" placeholder="Mobile" required />
+
+        <label>Status</label>
+        <select id="editActive">
+          <option value="true">Active</option>
+          <option value="false">Inactive</option>
+        </select>
+
+        <div class="buttons">
+          <button id="updateTeacherBtn" onclick="updateTeacher()">
+            Update Teacher
+          </button>
+
+          <button class="cancel" onclick="closeEditModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <script src="../../js/loader.js"></script>
+    <script src="../../js/api.js"></script>
+    <script src="../../js/toast.js"></script>
+    <script src="../../js/teachers.js"></script>
+  </body>
+</html>

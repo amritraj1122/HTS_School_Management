@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #f5f7fb;
+  padding: 30px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 {
+  color: #184a9c;
+  margin-bottom: 20px;
+}
+
+.teacher-info {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.section {
+  margin-bottom: 35px;
+}
+
+.section h2 {
+  margin-bottom: 15px;
+  color: #184a9c;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+
+  border-radius: 10px;
+
+  padding: 20px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+
+  color: #184a9c;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logout-btn {
+  background: #e53935;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.25s;
+}
+
+.logout-btn:hover {
+  background: #c62828;
+}

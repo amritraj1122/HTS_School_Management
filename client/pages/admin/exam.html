@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Management</title>
+    <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/loader.css">
+    <link rel="stylesheet" href="../../css/exam.css" />
+    <link rel="stylesheet" href="../../css/toast.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Exam Management</h1>
+
+      <button class="add-btn" onclick="openModal()">+ Add Exam</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Exam Code</th>
+
+            <th>Exam Name</th>
+
+            <th>Maximum Marks</th>
+
+            <th>Display Order</th>
+
+            <th>Status</th>
+
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody id="examTable"></tbody>
+      </table>
+    </div>
+
+    <!-- ================= Add Exam Modal ================= -->
+
+    <div id="examModal" class="modal">
+      <div class="modal-content">
+        <h2>Add Exam</h2>
+
+        <input type="text" id="examCode" placeholder="Exam Code (PT1, HY...)" />
+
+        <input type="text" id="examName" placeholder="Exam Name" />
+
+        <input type="number" id="maxMarks" placeholder="Maximum Marks" />
+
+        <input type="number" id="displayOrder" placeholder="Display Order" />
+
+        <select id="session"></select>
+
+        <select id="active">
+          <option value="true">Active</option>
+
+          <option value="false">Inactive</option>
+        </select>
+
+        <div class="buttons">
+          <button onclick="createExam()">Create Exam</button>
+
+          <button class="cancel" onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <select id="resultType">
+      <option value="">Select Result Type</option>
+
+      <option value="HALF_YEARLY EXAMINATION">HALF YEARLY EXAMINATION</option>
+
+      <option value="ANNUAL EXAMINATION">ANNUAL EXAMINATION</option>
+    </select>
+
+    <!-- ================= Edit Exam Modal ================= -->
+
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <h2>Edit Exam</h2>
+
+        <input type="hidden" id="editId" />
+
+        <input type="text" id="editExamCode" />
+
+        <input type="text" id="editExamName" />
+
+        <input type="number" id="editMaxMarks" />
+
+        <input type="number" id="editDisplayOrder" />
+
+        <select id="editSession"></select>
+
+        <select id="editActive">
+          <option value="true">Active</option>
+
+          <option value="false">Inactive</option>
+        </select>
+
+        <div class="buttons">
+          <button onclick="updateExam()">Update Exam</button>
+
+          <button class="cancel" onclick="closeEditModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../js/api.js"></script>
+    <script src="../../js/loader.js"></script>
+    <script src="../../js/dropdownService.js"></script>
+    <script src="../../js/toast.js"></script>
+    <script src="../../js/exam.js"></script>
+  </body>
+</html>

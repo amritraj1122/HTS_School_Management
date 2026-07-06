@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Marks Entry</title>
+    <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/toast.css" />
+    <link rel="stylesheet" href="../../css/loader.css">
+    <link rel="stylesheet" href="../../css/marks.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Marks Entry</h1>
+      <div id="assignmentInfo" class="assignment-info"></div>
+      <div class="teacher-name" id="teacherName"></div>
+
+      <!-- <div class="filters">
+        <div class="form-group">
+          <label>Exam</label>
+          <select class="exam-info" id="examInfo"></select>
+          <select id="exam"></select>
+        </div>
+
+        <div class="form-group">
+          <label>Teaching Assignment</label>
+
+          <select id="assignment"></select>
+        </div>
+      </div> -->
+
+      <table>
+        <thead>
+          <tr>
+            <th>Roll</th>
+            <th>Student Name</th>
+            <th>Marks</th>
+            <th>Absent</th>
+          </tr>
+        </thead>
+
+        <tbody id="studentTable"></tbody>
+      </table>
+
+      <button id="saveBtn">Save Marks</button>
+    </div>
+
+    <script src="../../js/api.js"></script>
+    <script src="../../js/dropdownService.js"></script>
+    <script src="../../js/loader.js"></script>
+    <script src="../../js/toast.js"></script>
+    <script src="../../js/marks.js"></script>
+  </body>
+</html>

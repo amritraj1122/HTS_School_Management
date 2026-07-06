@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #f2f2f2;
+  padding: 20px;
+}
+
+.report-card {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  margin: auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* margin-bottom: 20px; */
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.school-details {
+  flex: 1;
+  text-align: center;
+}
+
+.school-details h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.school-details h2 {
+  margin-top: 10px;
+  font-size: 24px;
+  text-decoration: underline;
+}
+
+.school-details h3 {
+  margin-top: 5px;
+  color: #555;
+  font-size: 20px;
+}
+
+.school-details p {
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.photo-box {
+  width: 130px;
+  height: 170px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.student-info {
+  width: 100%;
+  margin: 5px 0;
+  border-collapse: collapse;
+}
+
+.student-info td {
+  padding: 7px 5px;
+  font-size: 20px;
+}
+
+.marks-table {
+  width: 100%;
+  border-collapse: collapse;
+  /* margin-top: 20px; */
+}
+
+.marks-table th,
+.marks-table td {
+  border: 2px solid black;
+  padding: 5px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.marks-table th {
+  background: #f3f3f3;
+}
+
+.summary {
+  width: 320px;
+  margin-left: auto;
+  margin-top: 5px;
+  border-collapse: collapse;
+}
+
+.summary td {
+  border: 2px solid black;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.remarks {
+  margin-top: 10px;
+}
+
+.remarks h3 {
+  text-align: center;
+  border: 2px solid black;
+  border-bottom: none;
+  padding: 10px;
+  background: #efefef;
+}
+
+.remarks-box {
+  height: 50px;
+  border: 2px solid black;
+}
+
+.signatures {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+  font-size: 14px;
+}
+
+.print-button {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.print-button button {
+  padding: 12px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  background: #1f4fa3;
+  color: white;
+  border-radius: 6px;
+}
+
+.print-button button:hover {
+  background: #163d82;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 10mm;
+}
+
+@media print {
+  body {
+    background: white;
+    padding: 0;
+  }
+
+  .report-card {
+    width: 100%;
+    min-height: auto;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .print-button {
+    display: none;
+  }
+  .signatures {
+    display: flex;
+    justify-content: space-between;
+    margin-top:35px;
+    font-size: 12px;
+  }
+}
+/* ===============================
+   Class Report Printing
+================================= */
+
+.report-card {
+  page-break-after: always;
+}
+
+.report-card:last-child {
+  page-break-after: auto;
+}
+
+@media print {
+
+  .print-button {
+    display: none;
+  }
+
+  body {
+    background: white;
+  }
+
+}

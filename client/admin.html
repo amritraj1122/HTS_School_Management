@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTS Admin Dashboard</title>
+    <link rel="stylesheet" href="../../css/loader.css">
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+  </head>
+
+  <body>
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <img
+          src="./assets/images/logo.png"
+          alt="School Logo"
+          class="sidebar-logo"
+        />
+
+        <h2>HTS Admin</h2>
+      </div>
+
+      <ul>
+        <li class="active">🏠 Dashboard</li>
+
+        <li>
+          <a href="pages/admin/teachers.html"> 👨‍🏫 Teachers </a>
+        </li>
+
+        <li>
+          <a href="pages/students/students.html"> 👨‍🎓 Students </a>
+        </li>
+
+        <li>
+          <a href="pages/subjects/subjects.html"> 📚 Subjects </a>
+        </li>
+
+        <li>
+          <a href="pages/classes/classes.html"> 🟨 Classes </a>
+        </li>
+
+        <li>
+          <a href="pages/admin/exam.html"> 📝 Exams </a>
+        </li>
+
+        <li>
+          <a href="pages/admin/student-enrollment.html">
+            📖 Student Enrollment
+          </a>
+        </li>
+
+        <li>
+          <a href="pages/admin/results.html"> 📊 Student Results </a>
+        </li>
+
+        <li>
+          <a href="pages/results/report-card.html"> 📄 Reports </a>
+        </li>
+      </ul>
+
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Main -->
+
+    <div class="main-content">
+      <!-- Header -->
+
+      <div class="header">
+        <div>
+          <h1>Holy Trinity School</h1>
+
+          <p>Welcome, Administrator</p>
+        </div>
+
+        <div class="header-right">
+          <h3 id="currentSession">Session : --</h3>
+          <br>
+          <h3>Today</h3>
+          <p id="todayDate"></p>
+        </div>
+      </div>
+
+      <!-- Dashboard Cards -->
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">👨‍🏫</div>
+
+          <h2>Teachers</h2>
+          <h3 id="teacherCount">0</h3>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">👨‍🎓</div>
+
+          <h2>Students</h2>
+
+          <h3 id="studentCount">0</h3>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📚</div>
+
+          <h2>Subjects</h2>
+
+          <h3 id="subjectCount">0</h3>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📝</div>
+
+          <h2>Exams</h2>
+
+          <h3 id="examCount">0</h3>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🏫</div>
+
+          <h2>Classes</h2>
+
+          <h3 id="classCount">0</h3>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📖</div>
+
+          <h2>Enrollments</h2>
+
+          <h3 id="enrollmentCount">0</h3>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/api.js"></script>
+    <script src="./js/toast.js"></script>
+    <script src="../../js/loader.js"></script>
+    <script src="./js/dashboard.js"></script>
+  </body>
+</html>

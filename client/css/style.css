@@ -1,0 +1,209 @@
+/* ==========================
+   Global
+========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main {
+  width: 100%;
+}
+
+/* ==========================
+   Login Container
+========================== */
+.login-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  background: url("../assets/images/bgimage.jpg") center center/cover no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+/* ==========================
+   Logo
+========================== */
+.login-container img {
+  width: 180px;
+  max-width: 45%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* ==========================
+   Heading
+========================== */
+.login-container h3 {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 90%;
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.8);
+  font-family: cursive;
+  font-size: 2rem;
+}
+
+/* ==========================
+   Form
+========================== */
+.login-container form {
+  width: 100%;
+  max-width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==========================
+   Input Fields
+========================== */
+.login-container form input {
+  width: 100%;
+  padding: 14px 20px;
+  margin: 8px 0;
+
+  border: 1px solid #444;
+  border-radius: 50px;
+
+  font-size: 16px;
+  outline: none;
+}
+
+.login-container form input:focus {
+  border-color: green;
+}
+
+.login-container form ::placeholder {
+  color: green;
+  opacity: 0.6;
+}
+
+/* ==========================
+   Button
+========================== */
+#loginForm button {
+  width: 100%;
+  padding: 14px;
+
+  margin-top: 20px;
+
+  border: none;
+  border-radius: 50px;
+
+  background: green;
+  color: #fff;
+
+  font-size: 16px;
+  cursor: pointer;
+
+  transition: background 0.3s ease;
+}
+
+#loginForm button:hover {
+  background: darkgreen;
+}
+
+/* ==========================
+   Message
+========================== */
+#message {
+  margin-top: 10px;
+  padding: 8px 12px;
+
+  background: #fff;
+  color: red;
+
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* ==========================
+   Tablet (768px)
+========================== */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 25px;
+  }
+
+  .login-container img {
+    width: 150px;
+  }
+
+  .login-container h3 {
+    font-size: 1.7rem;
+  }
+
+  .login-container form {
+    max-width: 350px;
+  }
+}
+
+/* ==========================
+   Mobile (480px)
+========================== */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 20px 15px;
+  }
+
+  .login-container img {
+    width: 120px;
+    margin-bottom: 15px;
+  }
+
+  .login-container h3 {
+    font-size: 1.3rem;
+    top: 15px;
+  }
+
+  .login-container form {
+    max-width: 100%;
+  }
+
+  .login-container form input {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  #loginForm button {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  #message {
+    font-size: 14px;
+  }
+}
+
+/* ==========================
+   Large Screens (1200px+)
+========================== */
+@media (min-width: 1200px) {
+  .login-container img {
+    width: 220px;
+  }
+
+  .login-container h3 {
+    font-size: 2.2rem;
+  }
+}
