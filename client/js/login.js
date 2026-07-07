@@ -10,7 +10,7 @@ form.addEventListener("submit", async (evt) => {
   try {
     // ---------- Try Admin Login ----------
 
-    let response = await fetch("http://localhost:5000/api/auth/login", {
+    let response = await fetch("https://hts-school-management.onrender.com/api/auth/login", {
       method: "POST",
 
       headers: {
