@@ -37,7 +37,7 @@ form.addEventListener("submit", async (evt) => {
 
     // ---------- Try Teacher Login ----------
 
-    response = await fetch("http://localhost:5000/api/teacher-auth/login", {
+    response = await fetch("https://hts-school-management.onrender.com/api/teacher-auth/login", {
       method: "POST",
 
       headers: {
