@@ -24,7 +24,12 @@ const app = express();
 connectDB();
 createAdmin();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://hts-school-frontend.onrender.com",
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
