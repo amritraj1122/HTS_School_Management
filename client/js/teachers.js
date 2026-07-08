@@ -11,7 +11,9 @@ function closeEditModal() {
 
 async function loadTeachers() {
   try {
-    const response = await fetch("https://hts-school-management.onrender.com/api/teachers");
+    const response = await fetch(
+      "https://hts-school-management.onrender.com/api/teachers",
+    );
 
     const data = await response.json();
 
@@ -68,23 +70,26 @@ async function createTeacher() {
 
   const active = document.getElementById("active").value === "true";
 
-  const response = await fetch("https://hts-school-management.onrender.com/api/teachers/create", {
-    method: "POST",
+  const response = await fetch(
+    "https://hts-school-management.onrender.com/api/teachers/create",
+    {
+      method: "POST",
 
-    headers: {
-      "Content-Type": "application/json",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        name,
+
+        email,
+
+        mobile,
+
+        active,
+      }),
     },
-
-    body: JSON.stringify({
-      name,
-
-      email,
-
-      mobile,
-
-      active,
-    }),
-  });
+  );
 
   const data = await response.json();
 
@@ -102,20 +107,24 @@ Password : ${data.password}`,
 }
 
 async function deleteTeacher(id) {
-  if (!confirm("Delete Teacher?")) return;
-
-  await fetch(
+  const response = await fetch(
     `https://hts-school-management.onrender.com/api/teachers/${id}`,
-
     {
       method: "DELETE",
     },
   );
 
-  loadTeachers();
+  if (response.ok) {
+    showToast("Teacher deleted successfully!", "success");
+    loadTeachers();
+  } else {
+    showToast("Failed to delete teacher!", "error");
+  }
 }
 async function editTeacher(id) {
-  const response = await fetch("https://hts-school-management.onrender.com/api/teachers");
+  const response = await fetch(
+    "https://hts-school-management.onrender.com/api/teachers",
+  );
 
   const data = await response.json();
 
@@ -145,35 +154,30 @@ async function updateTeacher() {
 
   const active = document.getElementById("editActive").value === "true";
 
-  await fetch(
+  const response = await fetch(
     `https://hts-school-management.onrender.com/api/teachers/${id}`,
-
     {
       method: "PUT",
-
       headers: {
         "Content-Type": "application/json",
       },
-
       body: JSON.stringify({
         name,
-
         email,
-
         mobile,
-
         active,
       }),
     },
   );
 
-  closeEditModal();
-
-  loadTeachers();
+  if (response.ok) {
+    showToast("Teacher updated successfully!", "success");
+    closeEditModal();
+    loadTeachers();
+  } else {
+    showToast("Failed to update teacher!", "error");
+  }
 }
 function assignTeacher(id) {
-
-    window.location.href =
-        `../assignments/assignments.html?teacher=${id}`;
-
+  window.location.href = `../assignments/assignments.html?teacher=${id}`;
 }
