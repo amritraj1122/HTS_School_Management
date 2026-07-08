@@ -9,54 +9,50 @@ function renderStudents(students) {
 
   students.forEach((student) => {
     table.innerHTML += `
+      <tr>
+        <td>${student.admissionNo}</td>
+        <td>${student.name}</td>
+        <td>${student.fatherName}</td>
+        <td>${student.gender}</td>
+        <td>${student.class}</td>
+        <td>${student.section}</td>
 
-        <tr>
+        <td>
+          <button
+            class="editBtn"
+            onclick="editStudent('${student._id}')">
+            Edit
+          </button>
 
-            <td>${student.admissionNo}</td>
-            <td>${student.name}</td>
-            <td>${student.fatherName}</td>
-            <td>${student.gender}</td>
-            <td>${student.class}</td>
-            <td>${student.section}</td>
-
-            <td>
-
-                <button
-                    class="editBtn"
-                    onclick="editStudent('${student._id}')">
-
-                    Edit
-
-                </button>
-
-                <button
-                    class="deleteBtn"
-                    onclick="deleteStudent('${student._id}')">
-
-                    Delete
-
-                </button>
-
-            </td>
-
-        </tr>
-
-        `;
+          <button
+            class="deleteBtn"
+            onclick="deleteStudent('${student._id}')">
+            Delete
+          </button>
+        </td>
+      </tr>
+    `;
   });
 }
 
 async function loadStudents() {
   try {
     const response = await fetch("/api/students");
+
     const data = await response.json();
+
     allStudents = data.students;
 
     table.innerHTML = "";
+
     renderStudents(allStudents);
   } catch (err) {
     console.log(err);
+
+    showToast("Unable to load students", "error");
   }
 }
+
 loadStudents();
 
 function editStudent(id) {
@@ -77,6 +73,7 @@ function editStudent(id) {
 
   modal.style.display = "flex";
 }
+
 async function deleteStudent(id) {
   const confirmDelete = confirm(
     "Are you sure you want to delete this student?",
@@ -92,35 +89,43 @@ async function deleteStudent(id) {
     const data = await response.json();
 
     if (data.success) {
-      alert("Student Deleted Successfully");
+      showToast("Student deleted successfully!");
 
       loadStudents();
     } else {
-      alert(data.message);
+      showToast(data.message, "error");
     }
   } catch (err) {
     console.log(err);
+
+    showToast("Unable to delete student", "error");
   }
 }
 
 // Modal Elements
+
 const modal = document.getElementById("studentModal");
 
 const addBtn = document.querySelector("#addBtn");
 
 const closeBtn = document.querySelector(".close");
+
 initializeModal("studentModal");
+
 // Open Modal
+
 addBtn.onclick = () => {
   openModal("studentModal");
 };
 
 // Close Modal
+
 closeBtn.onclick = () => {
   closeModal("studentModal");
 };
 
 // Close on Background Click
+
 window.onclick = (e) => {
   if (e.target === modal) {
     closeModal("studentModal");
@@ -143,42 +148,54 @@ studentForm.addEventListener("submit", async (e) => {
 
   try {
     let url = "/api/students/create";
+
     let method = "POST";
 
     if (editingStudentId !== null) {
       url = `/api/students/${editingStudentId}`;
       method = "PUT";
     }
+
     const response = await fetch(url, {
       method,
+
       headers: {
         "Content-Type": "application/json",
       },
+
       body: JSON.stringify(student),
     });
 
     const data = await response.json();
 
     if (data.success) {
-      alert("Student Added Successfully");
+      showToast(
+        editingStudentId
+          ? "Student updated successfully!"
+          : "Student added successfully!",
+      );
 
       studentForm.reset();
+
       editingStudentId = null;
+
       document.querySelector("#studentForm button").textContent =
         "Save Student";
 
-      modal.style.display = "none";
+      closeModal("studentModal");
 
       loadStudents();
     } else {
-      alert(data.message);
+      showToast(data.message, "error");
     }
   } catch (err) {
     console.log(err);
+
+    showToast("Unable to save student", "error");
   }
 });
 
-// Search Box Code From Here
+// Search Box
 
 searchBox.addEventListener("keyup", () => {
   const keyword = searchBox.value.toLowerCase();
