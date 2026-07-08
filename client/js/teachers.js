@@ -11,7 +11,7 @@ function closeEditModal() {
 
 async function loadTeachers() {
   try {
-    const response = await fetch("http://localhost:5000/api/teachers");
+    const response = await fetch("https://hts-school-management.onrender.com/api/teachers");
 
     const data = await response.json();
 
@@ -68,7 +68,7 @@ async function createTeacher() {
 
   const active = document.getElementById("active").value === "true";
 
-  const response = await fetch("http://localhost:5000/api/teachers/create", {
+  const response = await fetch("https://hts-school-management.onrender.com/api/teachers/create", {
     method: "POST",
 
     headers: {
@@ -105,7 +105,7 @@ async function deleteTeacher(id) {
   if (!confirm("Delete Teacher?")) return;
 
   await fetch(
-    `http://localhost:5000/api/teachers/${id}`,
+    `https://hts-school-management.onrender.com/api/teachers/${id}`,
 
     {
       method: "DELETE",
@@ -115,7 +115,7 @@ async function deleteTeacher(id) {
   loadTeachers();
 }
 async function editTeacher(id) {
-  const response = await fetch("http://localhost:5000/api/teachers");
+  const response = await fetch("https://hts-school-management.onrender.com/api/teachers");
 
   const data = await response.json();
 
@@ -146,7 +146,7 @@ async function updateTeacher() {
   const active = document.getElementById("editActive").value === "true";
 
   await fetch(
-    `http://localhost:5000/api/teachers/${id}`,
+    `https://hts-school-management.onrender.com/api/teachers/${id}`,
 
     {
       method: "PUT",
