@@ -184,3 +184,72 @@ button:hover {
     width: 100%;
   }
 }
+/* ===============================
+   Student Search
+================================= */
+
+.student-search-container {
+  position: relative;
+  width: 100%;
+}
+
+.student-search-container input {
+  width: 100%;
+}
+
+.student-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+
+  background: white;
+
+  border: 1px solid #ccc;
+
+  border-top: none;
+
+  border-radius: 0 0 5px 5px;
+
+  max-height: 250px;
+
+  overflow-y: auto;
+
+  z-index: 1000;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.student-result-item {
+  padding: 10px 12px;
+
+  cursor: pointer;
+
+  border-bottom: 1px solid #eee;
+
+  transition: 0.2s;
+}
+
+.student-result-item:last-child {
+  border-bottom: none;
+}
+
+.student-result-item:hover {
+  background: #f0f5ff;
+}
+
+.student-result-item strong {
+  color: #184a9c;
+}
+
+.student-result-item small {
+  color: #666;
+}
+
+.student-result-empty {
+  padding: 12px;
+
+  color: #777;
+
+  text-align: center;
+}

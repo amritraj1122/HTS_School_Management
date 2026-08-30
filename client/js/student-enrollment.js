@@ -3,13 +3,14 @@
 async function openModal() {
   document.getElementById("enrollmentModal").style.display = "block";
 
-  await loadStudents();
-
   await DropdownService.loadSessions("session");
 
   await DropdownService.loadClasses("class");
 
   document.getElementById("student").value = "";
+  document.getElementById("studentSearch").value = "";
+  document.getElementById("studentResults").innerHTML = "";
+
   document.getElementById("session").value = "";
   document.getElementById("class").value = "";
 
@@ -28,23 +29,69 @@ function closeModal() {
   document.getElementById("enrollmentModal").style.display = "none";
 }
 
-// ---------------- Students ----------------
+// ---------------- Student Search ----------------
 
-async function loadStudents() {
-  const select = document.getElementById("student");
+const studentSearch = document.getElementById("studentSearch");
+const studentResults = document.getElementById("studentResults");
 
-  const data = await API.get("/api/students");
+let searchTimeout;
 
-  select.innerHTML = '<option value="">Select Student</option>';
+studentSearch.addEventListener("input", () => {
+  clearTimeout(searchTimeout);
 
-  data.students.forEach((student) => {
-    select.innerHTML += `
-      <option value="${student._id}">
-        ${student.admissionNo} - ${student.name}
-      </option>
-    `;
-  });
-}
+  const query = studentSearch.value.trim();
+
+  document.getElementById("student").value = "";
+
+  if (!query) {
+    studentResults.innerHTML = "";
+    return;
+  }
+
+  searchTimeout = setTimeout(async () => {
+    try {
+      const data = await API.get(
+        `/api/students/search?query=${encodeURIComponent(query)}`,
+      );
+
+      studentResults.innerHTML = "";
+
+      if (!data.students || data.students.length === 0) {
+        studentResults.innerHTML =
+          '<div class="student-result-empty">No student found</div>';
+
+        return;
+      }
+
+      data.students.forEach((student) => {
+        const result = document.createElement("div");
+
+        result.className = "student-result-item";
+
+        result.innerHTML = `
+          <strong>${student.admissionNo}</strong> - ${student.name}
+          <br>
+          <small>Father: ${student.fatherName}</small>
+        `;
+
+        result.addEventListener("click", () => {
+          document.getElementById("student").value = student._id;
+
+          studentSearch.value = `${student.admissionNo} - ${student.name}`;
+
+          studentResults.innerHTML = "";
+        });
+
+        studentResults.appendChild(result);
+      });
+    } catch (error) {
+      console.log(error);
+
+      studentResults.innerHTML =
+        '<div class="student-result-empty">Unable to search students</div>';
+    }
+  }, 300);
+});
 
 // ---------------- Modal Class Change ----------------
 
@@ -214,8 +261,10 @@ async function editEnrollment(id) {
     const data = await API.get(`/api/enrollments/${id}`);
 
     const enrollment = data.enrollment;
-
+    
     document.getElementById("student").value = enrollment.student._id;
+    document.getElementById("studentSearch").value =
+      `${enrollment.student.admissionNo} - ${enrollment.student.name}`;
     document.getElementById("session").value = enrollment.session._id;
     document.getElementById("class").value = enrollment.class._id;
 

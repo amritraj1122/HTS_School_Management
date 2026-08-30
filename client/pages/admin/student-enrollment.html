@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Enrollment</title>
-    <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../css/loader.css">
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../../css/loader.css" />
     <link rel="stylesheet" href="../../css/student-enrollment.css" />
     <link rel="stylesheet" href="../../css/table.css" />
     <link rel="stylesheet" href="../../css/modal.css" />
@@ -69,7 +73,19 @@
         <h2>Enroll Student</h2>
 
         <label>Student</label>
-        <select id="student"></select>
+
+        <div class="student-search-container">
+          <input
+            type="text"
+            id="studentSearch"
+            placeholder="Search by Admission No. or Student Name"
+            autocomplete="off"
+          />
+
+          <input type="hidden" id="student" />
+
+          <div id="studentResults" class="student-results"></div>
+        </div>
 
         <label>Session</label>
         <select id="session"></select>
