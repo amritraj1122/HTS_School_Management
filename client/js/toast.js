@@ -9,7 +9,7 @@ function showToast(message, type = "success") {
 
   setTimeout(() => {
     toast.classList.add("show");
-  }, 100);
+  }, 50);
 
   setTimeout(() => {
     toast.classList.remove("show");
@@ -17,5 +17,5 @@ function showToast(message, type = "success") {
     setTimeout(() => {
       toast.remove();
     }, 300);
-  }, 3000);
+  }, 1000);
 }
