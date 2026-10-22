@@ -6,36 +6,24 @@ const studentSchema = new mongoose.Schema(
       type: String,
       unique: true,
       required: true,
-    },
-
-    session: {
-      type: String,
-      required: true,
+      trim: true,
     },
 
     name: {
       type: String,
       required: true,
+      trim: true,
     },
 
     fatherName: {
       type: String,
       required: true,
+      trim: true,
     },
 
     gender: {
       type: String,
       enum: ["Male", "Female"],
-      required: true,
-    },
-
-    class: {
-      type: String,
-      required: true,
-    },
-
-    section: {
-      type: String,
       required: true,
     },
 
